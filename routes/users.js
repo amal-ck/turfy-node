@@ -4,7 +4,7 @@ var userHelpers=require('../helpers/users-helpers')
 
 /* GET user page. */
 router.get('/', function(req, res, next) {
-  res.render('users/home', { title: 'Express',user:true });
+  res.render('users/home', { title: 'Turfy',user:true });
 });
 
 module.exports = router;
