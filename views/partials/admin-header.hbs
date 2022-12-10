@@ -1,28 +1,36 @@
 <section>
   
-  <nav class="navbar navbar-expand-lg  navbar-light bg-success">
-  <a class="navbar-brand pl-3" href="#">Turfy Admin</a>
+  <nav class="navbar navbar-expand-lg  navbar-light bg-success p-3">
+  <a class="navbar-brand pl-3" href="/">Turfy Admin</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto  mr-4">
       <li class="nav-item active">
-        <a class="nav-link text-light" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link text-light" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-light" href="#">All Owners</a>
+        <a class="nav-link text-light" href="#">Booked Turfs</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-light" href="#">All Users</a>
+        <a class="nav-link text-light" href="#">Pricing</a>
       </li>
        <div class="dropdown">
         <button class="btn btn-success dropdown-toggle " type="button" id="dropdownMenuButton"
           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <label for="">Admin</label>
+          Admin
+          
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          {{#if users}}
           <a class="dropdown-item" href="/logout">Logout</a>
+          
+          {{else}}
+          <a class="dropdown-item" href="/login">Login</a>
+          {{/if}}
+          
+
         </div>
   </div>
     </ul>
