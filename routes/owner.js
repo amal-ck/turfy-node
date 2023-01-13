@@ -5,7 +5,10 @@ var ownerHelper=require('../helpers/owner-helpers')
 /* owner controlls. */
 
 router.get('/', function(req, res, next) {
-  res.render('owner/view-turf',{owner:true,title:'owner'})
+  ownerHelper.viewTurf().then((turfs)=>{
+    res.render('owner/view-turf',{owner:true,title:'owner',turfs})
+  })
+  
 });
 router.get('/add-turf',(req,res)=>{
   res.render('owner/add-turf',{owner:true,title:'add turf'})

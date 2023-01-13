@@ -9,6 +9,12 @@ module.exports={
             })
             
         })
+    },
+    viewTurf:()=>{
+        return new Promise((resolve,reject)=>{
+            let turfs=db.get().collection(collection.TURF_COLLECTION).find().toArray()
+            resolve(turfs)
+        })
     }
     
 }
