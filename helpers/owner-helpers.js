@@ -15,6 +15,13 @@ module.exports={
             let turfs=db.get().collection(collection.TURF_COLLECTION).find().toArray()
             resolve(turfs)
         })
+    },
+    getTurfData:(turfId)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collection.TURF_COLLECTION).findOne({_id:objectId(turfId)}).then((turf)=>{
+                resolve(turf)
+            })
+        })
     }
     
 }

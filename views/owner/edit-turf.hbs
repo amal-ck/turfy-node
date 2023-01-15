@@ -1,0 +1,126 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-6">
+                <h2 class="text-center">Edit Turf</h2>
+                <form action="/owner/edit-turf/{{turf._id}}" method="post" enctype="multipart/form-data">
+                    <div class="input-control">
+                        <label for="Tname">Name</label>
+                        <input type="text" class="form-control" name="Tname" value="{{turf.Tname}}">
+                    </div>
+                    <div class="input-control">
+                        <label for="mobileNo">Mobile No</label>
+                        <input type="text" class="form-control" name="Mobileno" value="{{turf.Mobileno}}">
+
+                    </div>
+                    <div class="input-control">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" name="City" value="{{turf.City}}">
+
+                    </div>
+                    <div class="input-controll">
+                        <label for="image">Turf Image</label>
+                        <img src="/turf-images/{{turf._id}}.jpg" alt="" width="100px" height="auto" id="imgView">
+                    </div>
+                    <div class="input-control">
+
+                        <input type="file" class="form-control" name="Image" onchange="viewImage(event)">
+
+                    </div>
+            </div>
+            <div class="input-control mt-5 col-lg-6">
+
+                <label for="time chooser">Choose Your Time</label>
+                <hr>
+                <label for="">7AM-7.30AM
+                    <input type="checkbox" value="7AM-7.30AM" name="turfTime">
+                </label>
+                <label for="">7.30AM-9AM
+                    <input class="checkbox" type="checkbox" value="7.30AM-9AM" name="turfTime">
+                </label>
+                <label for="">9AM-10.30AM
+                    <input type="checkbox" value="9AM-10.30AM" name="turfTime">
+                </label>
+                <br>
+
+                <label for="">10.30AM-12PM
+                    <input type="checkbox" value="10.30AM-12PM" name="turfTime">
+                </label>
+                <label for="">12PM-1.30PM
+                    <input type="checkbox" value="12PM-1.30PM" name="turfTime">
+                </label>
+                <label for="">1.30PM-3PM
+                    <input type="checkbox" value="1.30PM-3PM" name="turfTime">
+                </label>
+                <br>
+                <label for="">3PM-4.30PM
+                    <input type="checkbox" value="3PM-4.30PM" name="turfTime">
+                </label>
+                <label for="">4.30PM-6PM
+                    <input type="checkbox" value="4.30PM-6PM" name="turfTime">
+                </label>
+                <label for="">6PM-7.30PM
+                    <input type="checkbox" value="6PM-7.30PM" name="turfTime">
+                </label>
+                <br>
+                <label for="">7.30PM-9PM
+                    <input type="checkbox" value="7.30PM-9PM" name="turfTime">
+                </label>
+                <label for="">9PM-10.30PM
+                    <input type="checkbox" value="9PM-10.30PM" name="turfTime">
+                </label>
+                <label for="">10.30PM-12AM
+                    <input type="checkbox" value="10.30PM-12AM" name="turfTime">
+                </label>
+
+
+            </div>
+
+            <div class="text-center col-lg-12">
+                <button type="submit" class="aa btn btn-success mt-3 mb-3">Submit</button>
+            </div>
+            </form>
+        </div>
+    </div>
+    </div>
+</section>
+
+<script>
+    function viewImage(event) {
+        document.getElementById('imgView').src = URL.createObjectURL(event.target.files[0])
+    }
+</script>
+
+<style>
+    input[type="checkbox"]{
+        appearance: none;
+        background-color: #fff;
+        margin: 2em;
+        color: currentColor;
+        width: 1.5em;
+        height: 1.5em;
+        border: 0.15em solid currentColor;
+        border-radius: 0.15em;
+        transform: translateY(-0.075em);
+        display: grid;
+        place-content: center;
+        margin-right: 5em;
+        margin-top: 1em;
+    }
+    input[type="checkbox"]::before{
+        content: "";
+        width: 1em;
+        height: 1em;
+        transform: scale(0);
+        transition: 120ms transform ease-in-out;
+        box-shadow: inset 1em 1em var(--form-control-color);
+        background-color: green;
+    }
+    input[type="checkbox"]:checked::before{
+        transform: scale(1);
+    }
+    .aa{
+            width: 26em;
+    }
+    
+</style>

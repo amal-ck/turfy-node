@@ -20,9 +20,13 @@ ownerHelper.addTurf(req.body).then((insertedId)=>{
   image.mv('./public/turf-images/'+insertedId+'.jpg')
   res.render('owner/add-turf',{owner:true})
 })
-
-
 })
-
+router.get('/booked-turfs',(req,res)=>{
+  res.render('owner/booked-turfs',{owner:true})
+})
+router.get('/edit-turf/:id',async(req,res)=>{
+  let turf=await ownerHelper.getTurfData(req.params.id)
+  res.render('owner/edit-turf',{owner:true,title:'Edit Turf',turf})
+})
 
 module.exports = router;
