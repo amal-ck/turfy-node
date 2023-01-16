@@ -22,6 +22,20 @@ module.exports={
                 resolve(turf)
             })
         })
+    },
+    updateTurf:(turfId,turfData)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collection.TURF_COLLECTION).updateOne({_id:objectId(turfId)},{
+            $set:{
+                Tname:turfData.Tname,
+                Mobileno:turfData.Mobileno,
+                City:turfData.City,
+                turfTime:turfData.turfTime
+            }
+            }).then((response)=>{
+                resolve()
+            })   
+        })
     }
-    
+        
 }

@@ -28,5 +28,17 @@ router.get('/edit-turf/:id',async(req,res)=>{
   let turf=await ownerHelper.getTurfData(req.params.id)
   res.render('owner/edit-turf',{owner:true,title:'Edit Turf',turf})
 })
+router.post('/edit-turf/:id',(req,res)=>{
+  id=req.params.id
+  ownerHelper.updateTurf(req.params.id,req.body).then(()=>{
+    res.redirect('/owner')
+    if(req?.files?.Image){
+      let image=req.files.Image
+      image.mv('./public/turf-images/'+id+'.jpg')
+    }
+  })
+  
+})
+
 
 module.exports = router;
