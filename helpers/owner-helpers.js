@@ -1,5 +1,6 @@
 var db=require('../config/connection')
 var collection=require('../config/collections')
+const { response } = require('express')
 var objectId=require('mongodb').ObjectId
 module.exports={
     addTurf:(turf)=>{
@@ -35,6 +36,13 @@ module.exports={
             }).then((response)=>{
                 resolve()
             })   
+        })
+    },
+    deleteTurf:(turfId)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collection.TURF_COLLECTION).deleteOne({_id:objectId(turfId)}).then((response)=>{
+                resolve(response)
+            })
         })
     }
         

@@ -39,6 +39,11 @@ router.post('/edit-turf/:id',(req,res)=>{
   })
   
 })
-
+router.get('/delete-turf/:id',(req,res)=>{
+  turfId=req.params.id
+  ownerHelper.deleteTurf(turfId).then((response)=>{
+    res.redirect('/owner')
+  })
+})
 
 module.exports = router;

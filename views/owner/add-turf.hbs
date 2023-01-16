@@ -22,8 +22,11 @@
                     </div>
                     <div class="input-control">
                         <label for="image">Turf Image</label>
-                        <input type="file" class="form-control" name="Image">
+                        <input type="file" class="form-control" name="Image" onchange="viewImage(event)">
+                    </div>
+                     <div class="input-controll">
                         
+                        <img style="margin-left: 150px; margin-top: 10px;" src="/turf-images/{{turf._id}}.jpg" alt="" width="200px" height="auto" id="imgView">
                     </div>
                     </div>
                     <div class="input-control mt-5 col-lg-6">
@@ -116,3 +119,9 @@
     }
     
 </style>
+
+<script>
+    function viewImage(event) {
+        document.getElementById('imgView').src = URL.createObjectURL(event.target.files[0])
+    }
+</script>
