@@ -3,8 +3,11 @@ var router = express.Router();
 var userHelpers=require('../helpers/users-helpers')
 
 /* GET user page. */
-router.get('/', function(req, res, next) {
-  res.render('users/home', { title: 'Turfy',user:true });
+router.get('/', (req, res)=>{
+  userHelpers.viewTurf().then((turf)=>{
+    res.render('users/home',{user:true,title:'Trfu-Home',turf})
+  })
+  
 });
 
 module.exports = router;

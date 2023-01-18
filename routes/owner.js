@@ -4,7 +4,7 @@ var ownerHelper=require('../helpers/owner-helpers')
 
 /* owner controlls. */
 
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
   ownerHelper.viewTurf().then((turfs)=>{
     res.render('owner/view-turf',{owner:true,title:'owner',turfs})
   })
