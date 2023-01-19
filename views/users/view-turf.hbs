@@ -1,0 +1,32 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mt-4"> {{!-- turf details --}}
+                <img src="/turf-images/{{this._id}}.jpg" alt="Turf Image">
+                <h2>{{this.Tname}}</h2>
+                <h3>{{this.City}}</h3>
+                <h3>{{this.Mobileno}}</h3>
+            </div>
+            <div class="col-lg-6 mt-4"> {{!-- booking details --}}
+                <form action="/book-turf" method="post">
+                <input type="text" name="Name" class="form-control" placeholder="Name"/>
+                <br>
+                <textarea name="Address" id="" class="form-control" cols="22" rows="4" placeholder="Address"></textarea>
+                <br>
+                <input type="text" name="Phoneno" class="form-control" placeholder="Mobile No"/>
+                <br><br>
+                <label for="time chooser">Choose Your Time</label>
+                <hr>
+                {{#each time}}
+                    <label for="">{{this.time}}
+                    <input type="checkbox" value="{{this.time}}" name="turfTime">
+                    </label>
+                {{/each}}
+                <div class="text-center">
+                  <button class="btn btn-success text-center" style="width: 25rem;">Book Turf</button>  
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
