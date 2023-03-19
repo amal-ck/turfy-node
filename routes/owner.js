@@ -10,6 +10,9 @@ router.get('/', function(req, res) {
   })
   
 });
+router.get('/ownerlogin',(req,res)=>{
+  res.render('owner/owner-login',{title:'login '})
+})
 router.get('/add-turf',(req,res)=>{
   res.render('owner/add-turf',{owner:true,title:'add turf'})
 })
